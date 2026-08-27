@@ -6,7 +6,7 @@ import gsap from "gsap";
 
 const modelPath = import.meta.env.DEV
   ? "/models/GrowPlay-4.glb"
-  : "/ts/models/GrowPlay-4.glb";
+  : "./ts/models/GrowPlay-4.glb";
 
 const { state } = useGLTF(modelPath);
 
