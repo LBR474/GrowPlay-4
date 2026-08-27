@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Growplay Demo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/9bb0593ee2.js" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .container {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .top-div {
+            height: clamp(30px, 6vw, 60px);
+            background: lightgray;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .top-div img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .second-top-div {
+            height: 8vh;
+            display: flex;
+
+            box-sizing: border-box;
+        }
+
+
+        .second-top-right {
+            width: 33.333%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            vertical-align: middle;
+            gap: 25px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .second-top-right a {
+            color: #222;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        .second-top-left {
+            position: relative;
+            /* <-- important */
+
+            width: 33.333%;
+            height: 100%;
+
+            min-width: 0;
+            min-height: 0;
+
+            padding: 10px;
+            padding-right: 30px;
+            box-sizing: border-box;
+
+            overflow: hidden;
+        }
+
+        .second-top-left img {
+            position: absolute;
+            inset: 10px 30px 10px 10px;
+            /* matches your padding */
+
+            width: auto;
+            height: auto;
+            max-width: calc(100% - 40px);
+            max-height: calc(100% - 20px);
+
+            object-fit: contain;
+            object-position: right center;
+
+            z-index: 0;
+        }
+
+        #GP-app {
+            position: absolute;
+            inset: 10px 30px 10px 10px;
+
+            z-index: 1;
+
+            
+            /* handy while we're lining things up */
+
+            overflow: hidden;
+        }
+
+        #GP-app canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        #GP-app img {
+            display: block;
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+        }
+
+        .second-top-middle {
+            width: 33.333%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            box-sizing: border-box;
+        }
+
+        .second-top-middle a {
+            text-decoration: none;
+            color: #222;
+            font-family: 'Lato', sans-serif;
+            font-weight: 300;
+        }
+
+        .desktop-menu {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .hamburger {
+            display: none;
+        }
+
+        .main-div {
+            flex: 1;
+            background: white;
+            border: 1px solid green;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .main-div picture {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .main-div img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .demo-notice {
+            position: absolute;
+            top: 40%;
+            left: -10%;
+            width: 120%;
+
+            background: orange;
+            color: blue;
+
+            text-align: center;
+            font-family: 'Lato', sans-serif;
+            font-size: 18px;
+            font-weight: 400;
+
+            padding: 8px 0;
+
+            transform: rotate(-45deg);
+            z-index: 10;
+        }
+
+        @media (max-width: 800px) {
+
+
+            .second-top-div {
+                display: flex;
+                height: clamp(45px, 12vw, 100px);
+            }
+
+            .second-top-middle {
+                order: 1;
+                justify-content: flex-start;
+                padding-left: 20px;
+                width: 25%;
+
+
+
+            }
+
+            .second-top-left {
+                order: 2;
+                width: 50%;
+                height: 100%;
+                padding: 0;
+                box-sizing: border-box;
+                align-self: stretch;
+                border: #222 solid 1px;
+            }
+
+            #GP-app {
+                width: 50%;
+                height: 50%;
+                box-sizing: border-box;
+                border: #222 solid 1px;
+            }
+
+            .second-top-right {
+                order: 3;
+                justify-content: flex-end;
+                padding-right: 10px;
+                width: 25%;
+            }
+
+            .second-top-right a:first-child {
+                display: none;
+            }
+
+
+
+
+            .desktop-menu {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .hamburger span {
+                display: block;
+                width: 28px;
+                height: 3px;
+                background: #222;
+            }
+
+            .main-div {
+                height: clamp(300px, 75vw, 600px);
+            }
+
+            .main-div img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="top-div">
+            <img src="images/GP-top-image.jpg" alt="Growplay Logo">
+        </div>
+
+        <div class="second-top-div">
+
+            <div class="second-top-left">
+               
+                <div id="GP-app">
+                </div>
+            </div>
+
+            <div class="second-top-middle">
+
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <div class="desktop-menu">
+
+                    <a href="https://growplaymonkeybars.com/collections/backyard-monkey-bars">
+                        Monkey Bars
+                    </a>
+
+                    <a href="https://growplaymonkeybars.com/collections/accessories">
+                        Accessories
+                    </a>
+
+                    <a href="https://growplaymonkeybars.com/collections/cubby-house">
+                        Cubby House
+                    </a>
+
+                    <a href="https://growplaymonkeybars.com/collections/clearance">
+                        Blue Frames
+                    </a>
+
+                    <a href="https://growplaymonkeybars.com/pages/help-centre">
+                        Support
+                    </a>
+
+                    <a href="https://growplaymonkeybars.com/pages/reviews">
+                        Reviews
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="second-top-right">
+
+                <a href="#">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </a>
+
+                <a href="#">
+                    <i class="fa-solid fa-user"></i>
+                </a>
+
+                <a href="#">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="main-div">
+            <picture>
+                <source media="(max-width: 800px)" srcset="images/GP-main-home-page-image-below-800px.jpeg">
+
+                <img src="images/GP-main-home-page-image-2.jpeg" alt="Growplay Logo">
+            </picture>
+            <div class="demo-notice">
+                Demo site only - non-functioning links
+            </div>
+        </div>
+
+    </div>
+    <script type="module" src="ts/vue-app.js"></script>
+</body>
+
+</html>

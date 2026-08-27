@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>growplay-tresjs-app</title>
+    <style>
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+      }
+    
+      #GP-app {
+        position: relative;
+    
+        width: 100%;
+        height: 100%;
+    
+        overflow: hidden;
+      }
+    
+     #reference-image {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 90%;
+    height: 95%;
+
+    transform: translate(-51.5%, -50%);
+
+    object-fit: contain;
+
+    z-index: 0;
+}
+    
+      #vue-container {
+        position: absolute;
+    
+        top: 0;
+        left: 0;
+    
+        width: 100%;
+        height: 100%;
+    
+        z-index: 1;
+      }
+    </style>
+  </head>
+  <body>
+  
+    <div id="GP-app">
+  
+      <!-- Reference artwork -->
+      <img id="reference-image" src="/images/Growplay-flag-1.jpg" alt="GrowPlay reference" />
+  
+      <!-- Vue / TresJS goes here -->
+      <div id="vue-container"></div>
+  
+    </div>
+  
+    <script type="module" src="/src/main.ts"></script>
+  
+  </body>
+  
+  </html>
+</html>
