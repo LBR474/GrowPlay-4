@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { TresCanvas } from "@tresjs/core";
 //import FirstExperience from './components/Donut.vue'
-import Model from "./components/Model.vue";
+import Model from "./components/Model_with_transform.vue";
 import { Vector3 } from "three";
 //import { TresPerspectiveCamera } from "@tresjs/core";
 import { OrbitControls } from '@tresjs/cientos'
