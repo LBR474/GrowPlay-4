@@ -1,59 +1,36 @@
 <script setup lang="ts">
 import { TresCanvas } from "@tresjs/core";
-//import FirstExperience from './components/Donut.vue'
+
 import Model from "./components/Model_with_transform.vue";
 import { Vector3 } from "three";
-//import { TresPerspectiveCamera } from "@tresjs/core";
-import { OrbitControls } from '@tresjs/cientos'
-//import { onMounted } from "vue";
- import RendererTest from "./components/RendererTest.vue";
+
+import { OrbitControls } from "@tresjs/cientos";
+
+import RendererTest from "./components/RendererTest.vue";
 
 var cameraPosition = new Vector3(0, 2, 10);
 var lookAt = new Vector3(0, 0, 0);
 
-// onMounted(() => {
-//   setTimeout(() => {
-//     const canvas = document.querySelector("#vue-container canvas");
-
-//     console.log("CANVAS:", canvas);
-
-//     if (canvas) {
-//       console.log(
-//         "Canvas computed background:",
-//         getComputedStyle(canvas).backgroundColor
-//       );
-
-//       console.log(
-//         "Canvas:",
-//         canvas
-//       );
-//     }
-//   }, 1000);
-// });
 </script>
 
 <template>
   <!-- window-size -->
-  <TresCanvas   :antialias="true"
-    :alpha="true">
+  <TresCanvas :antialias="true" :alpha="true">
     <TresOrthographicCamera
       :args="[-10, 10, 5, -5, 0.1, 1000]"
       :position="cameraPosition"
       :look-at="lookAt"
     />
-            <OrbitControls />
+    <OrbitControls />
 
-            <TresAmbientLight :intensity="5.5" />
+    <TresAmbientLight :intensity="5.5" />
 
-            <renderer-test />
+    <renderer-test />
     <Suspense>
       <Model />
       <template #fallback>
-        <div class="loading">
-            Loading GrowPlay model...
-        </div>
-    </template>
-
+        <div class="loading">Loading GrowPlay model...</div>
+      </template>
     </Suspense>
   </TresCanvas>
 </template>
@@ -74,9 +51,8 @@ body,
 
 canvas {
   display: block;
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    
+  width: 100%;
+  height: 100%;
+  background: transparent;
 }
 </style>
