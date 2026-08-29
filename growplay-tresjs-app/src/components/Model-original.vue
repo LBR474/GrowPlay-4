@@ -128,6 +128,7 @@ watch(
 
     gltf.scene.add(letterGroup);
 
+    
     gltf.scene.add(climbingFrameGroup);
 
 
@@ -237,6 +238,9 @@ watch(
     // ============================================================
 
     climbingFrameGroup.traverse((object) => {
+
+      climbingFrameGroup.rotation.y = Math.PI / 4;
+
 
       if ((object as Mesh).isMesh) {
 
@@ -636,7 +640,7 @@ watch(
 
                 y:
                   climbingFrameGroup.rotation.y +
-                  Math.PI * 2,
+                  Math.PI * 3 / 4,
 
                 duration: 4,
 
