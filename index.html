@@ -186,83 +186,89 @@
             z-index: 10;
         }
 
-        @media (max-width: 800px) {
+     @media (max-width: 800px) {
 
+    .second-top-div {
+        display: flex;
+        height: clamp(45px, 12vw, 100px);
+    }
 
-            .second-top-div {
-                display: flex;
-                height: clamp(45px, 12vw, 100px);
-            }
+    /* HAMBURGER / MIDDLE */
+    .second-top-middle {
+        order: 1;
+        justify-content: flex-start;
+        padding-left: 20px;
+        width: 25%;
+    }
 
-            .second-top-middle {
-                order: 1;
-                justify-content: flex-start;
-                padding-left: 20px;
-                width: 25%;
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
 
+    .hamburger span {
+        display: block;
+        width: 28px;
+        height: 3px;
+        background: #222;
+    }
 
+    /* THREE.JS APP */
+    .second-top-left {
+        order: 2;
+        width: 50%;
+        height: 100%;
+        padding: 0;
+        box-sizing: border-box;
+        align-self: stretch;
 
-            }
+        border: #222 solid 1px;
 
-            .second-top-left {
-                order: 2;
-                width: 50%;
-                height: 100%;
-                padding: 0;
-                box-sizing: border-box;
-                align-self: stretch;
-                border: #222 solid 1px;
-            }
+        position: relative;
+    }
 
-            #GP-app {
-                width: 50%;
-                height: 50%;
-                box-sizing: border-box;
-                border: #222 solid 1px;
-            }
+    #GP-app {
+        position: absolute;
+        inset: 0;
 
-            .second-top-right {
-                order: 3;
-                justify-content: flex-end;
-                padding-right: 10px;
-                width: 25%;
-            }
+        width: 100%;
+        height: 100%;
 
-            .second-top-right a:first-child {
-                display: none;
-            }
+        box-sizing: border-box;
+        border: #222 solid 1px;
 
+        overflow: hidden;
+    }
 
+    /* RIGHT-HAND ICONS */
+    .second-top-right {
+        order: 3;
+        justify-content: flex-end;
+        padding-right: 10px;
+        width: 25%;
+    }
 
+    .second-top-right a:first-child {
+        display: none;
+    }
 
-            .desktop-menu {
-                display: none;
-            }
+    /* HIDE DESKTOP MENU */
+    .desktop-menu {
+        display: none;
+    }
 
-            .hamburger {
-                display: flex;
-                flex-direction: column;
-                gap: 5px;
-            }
+    /* MAIN IMAGE */
+    .main-div {
+        height: clamp(300px, 75vw, 600px);
+    }
 
-            .hamburger span {
-                display: block;
-                width: 28px;
-                height: 3px;
-                background: #222;
-            }
-
-            .main-div {
-                height: clamp(300px, 75vw, 600px);
-            }
-
-            .main-div img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-
-        }
+    .main-div img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
     </style>
 </head>
 

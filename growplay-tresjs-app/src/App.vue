@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { TresCanvas } from "@tresjs/core";
 
-import Model from "./components/Model-original.vue";
+import Model from "./components/Model-2.vue";
 import { Vector3 } from "three";
 
 import { OrbitControls } from "@tresjs/cientos";
