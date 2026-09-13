@@ -55,4 +55,19 @@ canvas {
   height: 100%;
   background: transparent;
 }
+
+@media (max-width: 379px) {
+
+  #GP-app {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  canvas {
+    width: 100vw !important;
+    height: 100vh !important;
+  }
+
+}
 </style>
